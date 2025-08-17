@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sougata Samanta • Portfolio</title>
+  <meta name="description" content="Portfolio of Sougata Samanta – M.Tech in Communication Systems Engineering at NIT Jamshedpur" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    :root{
+      --bg: #0b1220;         /* deep navy */
+      --panel: rgba(255,255,255,0.04);
+      --muted: rgba(255,255,255,0.6);
+      --text: #e7ecf3;
+      --brand: #5dd0ff;      /* sky */
+      --brand-2:#a78bfa;     /* violet */
+      --accent:#34d399;      /* green */
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(93,208,255,.12), transparent),
+                  radial-gradient(1000px 500px at 100% 10%, rgba(167,139,250,.10), transparent), var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+    .container{max-width:1120px; margin:0 auto; padding:0 20px}
+    .btn{display:inline-flex; align-items:center; gap:.6rem; padding:12px 18px; border-radius:14px; background:linear-gradient(135deg, var(--brand), var(--brand-2)); color:#0b1020; font-weight:700; box-shadow:var(--shadow); border:0}
+    .btn.outline{background:transparent; border:1px solid rgba(255,255,255,.18); color:var(--text)}
+    .chip{display:inline-flex; align-items:center; gap:.5rem; padding:6px 10px; border-radius:9999px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); font-size:.82rem}
+    header.sticky{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(10px); background:rgba(5,10,18,.5); border-bottom:1px solid rgba(255,255,255,.08)}
+    nav a{font-size:.95rem; opacity:.85}
+    nav a:hover{opacity:1}
+    /* Hero */
+    .hero{display:grid; grid-template-columns:1.2fr 1fr; gap:32px; padding:64px 0}
+    .title{font-size: clamp(2rem, 4vw, 3.2rem); line-height:1.15; font-weight:900}
+    .title .accent{color:var(--brand)}
+    .muted{color:var(--muted)}
+    .panel{border-radius:var(--radius); background:var(--panel); border:1px solid rgba(255,255,255,.1)}
+    .photo-wrap{position:relative}
+    .photo-glow{position:absolute; inset:-16px; filter:blur(40px); opacity:.6; background:conic-gradient(from 120deg, var(--brand), var(--brand-2), var(--accent)); border-radius:24px; z-index:-1}
+    .photo{aspect-ratio:4/5; object-fit:cover; border-radius:18px; border:1px solid rgba(255,255,255,.1); box-shadow:var(--shadow)}
+    .kbd{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); border-bottom-width:3px; padding:2px 8px; border-radius:8px}
+    /* Sections */
+    section{padding:72px 0}
+    h2{font-size: clamp(1.4rem, 2.6vw, 2.2rem); margin:0 0 18px}
+    .grid{display:grid; gap:18px}
+    .grid.skills{grid-template-columns:repeat(4,1fr)}
+    .grid.projects{grid-template-columns:repeat(3,1fr)}
+    .card{padding:18px; border-radius:var(--radius); background:var(--panel); border:1px solid rgba(255,255,255,.08)}
+    .project img{aspect-ratio:16/10; object-fit:cover; border-radius:14px}
+    .project .meta{display:flex; justify-content:space-between; align-items:center; margin-top:10px}
+    .badg{font-size:.72rem; padding:6px 10px; border-radius:9999px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1)}
+    .socials{display:flex; gap:12px; flex-wrap:wrap}
+    .socials a{padding:10px 12px; border-radius:12px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); font-size:.92rem}
+    .footer{border-top:1px solid rgba(255,255,255,.1); padding:28px 0; color:var(--muted); font-size:.92rem}
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero{grid-template-columns:1fr; padding:48px 0}
+      .grid.skills{grid-template-columns:repeat(2,1fr)}
+      .grid.projects{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 640px){
+      nav{display:none}
+      .grid.skills{grid-template-columns:1fr}
+      .grid.projects{grid-template-columns:1fr}
+    }
+    /* Typing cursor */
+    .typing{border-right: 2px solid var(--brand); animation: blink .9s steps(1) infinite}
+    @keyframes blink{50%{border-color: transparent}}
+  </style>
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header class="sticky">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; height:64px">
+      <a href="#" style="font-weight:800">Sougata Samanta</a>
+      <nav style="display:flex; gap:18px">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a class="btn outline" href="https://drive.google.com/file/d/10BYAWCXB48RHQ_aUaMmu2sDt8vQGxpDC/view?usp=sharing" download>Download Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero container">
+    <div data-aos="fade-up">
+      <h1 class="title">M.Tech (Communication Systems) <span class="accent">NIT Jamshedpur</span></h1>
+      <p class="muted">B.Tech(Electronics & Communication Engineering)GNIT</p>
+      <div style="margin:16px 0; display:flex; gap:8px; flex-wrap:wrap">
+        <span class="chip">Communication Systems</span>
+        <span class="chip">Wireless Communications</span>
+        <span class="chip">RF & Microwave</span>
+        <span class="chip">Electronics</span>
+        <span class="chip">Java</span>
+        <span class="chip">Python</span>
+        <span class="chip">MATLAB</span>
+        <span class="chip">Artificial Intelligence</span>
+        <span class="chip">Generative AI</span>
+        <span class="chip">Cyber Security</span>
+        <span class="chip">Data Analytics focused on Green Skills</span>
+      </div>
+      <div style="margin-top:18px; display:flex; gap:12px; flex-wrap:wrap">
+        <a class="btn" href="#projects">View Projects</a>
+        <a class="btn outline" href="https://drive.google.com/file/d/10BYAWCXB48RHQ_aUaMmu2sDt8vQGxpDC/view?usp=sharing" download>Download Resume</a>
+      </div>
+      <div style="margin-top:18px" class="muted">currently exploring <span id="typing" class="typing"></span></div>
+      <div class="socials" style="margin-top:18px">
+        <a href="https://whatsapp.com/channel/0029VaCcFMu1HspvSj532n0H" target="_blank">WhatsApp</a>
+        <a href="//www.facebook.com/profile.php?id=100072157697722" target="_blank">Facebook</a>
+        <a href="https://www.linkedin.com/in/sougata-samanta-739753308?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a>
+        <a href="https://github.com/samantasougata" target="_blank">GitHub</a>
+        <a href="mailto:samantasougata06@gmail.com"> Email</a>
+        <a href="//youtube.com/@sougatasamanta06?si=gCGGRA-C_oMfxmTY" target="_blank">YouTube</a>
+      </div>
+    </div>
+    <div class="photo-wrap" data-aos="zoom-in">
+      <div class="photo-glow"></div>
+      <!-- Replace src with your photo path e.g. /sougata-photo.jpg -->
+      <img class="photo" src="https://media.licdn.com/dms/image/v2/D4D03AQEMdm_R3-k4sw/profile-displayphoto-crop_800_800/B4DZijUJRSGsAM-/0/1755086630518?e=1758153600&v=beta&t=M2ocHaXEmJE56knU0J5iOn4kYTUr0kuTBRyWLuHx-As" alt="Sougata Samanta" />
+      <div class="card" style="position:absolute; left:12px; right:12px; bottom:-14px">name: Sougata Samanta</div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container grid" style="grid-template-columns: 1.2fr .8fr; gap:18px">
+      <div class="card" data-aos="fade-up">
+        <h2>About Me</h2>
+        <p>🎓 B.Tech graduate in <strong>Electronics & Communication Engineering</strong> from <strong>GNIT</strong>, pursuing M.Tech in <strong>Communication Systems Engineering</strong> at <strong>NIT Jamshedpur</strong>. 🖋Passionate about advanced communication technologies in the ECE domain.</p>
+      </div>
+      <div class="card" data-aos="fade-left">
+        <h2>Quick Info</h2>
+        <p><strong>Location:</strong> Kharagpur, West Bengal, India</p>
+        <p><strong>Email:</strong>samantasougata06@gmail.com</a></p>
+        <p><strong>Resume:</strong> <a href="https://drive.google.com/file/d/10BYAWCXB48RHQ_aUaMmu2sDt8vQGxpDC/view?usp=sharing" download>Download PDF</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+      <h2 data-aos="fade-up">Skills</h2>
+      <div class="grid skills">
+        <div class="card" data-aos="flip-left"><strong>Microwave & RF</strong><br><span class="muted"></span></div>
+        <div class="card" data-aos="flip-left" data-aos-delay="100"><strong>Communication Systems</strong><br><span class="muted"></span></div>
+        <div class="card" data-aos="flip-left" data-aos-delay="200"><strong>Electronics & Embedded</strong><br><span class="muted"></span></div>
+        <div class="card" data-aos="flip-left" data-aos-delay="300"><strong>Artificial Intelligence</strong><br><span class="muted"></span></div>
+        <div class="card" data-aos="flip-left" data-aos-delay="400"><strong>Programming</strong><br><span class="muted">Java, Python, MATLAB, Git</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <h2 data-aos="fade-up">Projects</h2>
+      <div class="grid projects">
+        <a class="card project" href="#" data-aos="fade-up" data-aos-delay="100">
+          <img src="https://m.media-amazon.com/images/I/61qAruCCPCL.jpg" alt="Portable Solar Tracking and Charging System" />
+          <div class="meta"><strong>Portable Solar Tracking and Charging System</strong><span class="badg">ECE • Electronics</span></div>
+          <p class="muted">focuses on the design and implementation of a Portable Solar Tracking and Charging System.</p>
+        </a>
+        <a class="card project" href="#" data-aos="fade-up" data-aos-delay="100">
+          <img src="https://iasgyan.sgp1.digitaloceanspaces.com/images/Collision_Avoidance_System_CAS.jpg" alt="Collision Avoidance for Cars" />
+          <div class="meta"><strong>Collision Avoidance for Cars</strong><span class="badg">ECE • Electronics</span></div>
+          <p class="muted">focuses on implementing a collision avoidance system for cars using ultrasonic sensors.</p>
+        </a>
+        <a class="card project" href="#" data-aos="fade-up">
+          <img src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3?q=80&w=1200&auto=format&fit=crop" alt="Smart Blind Spot Detection" />
+          <div class="meta"><strong>Smart Blind Spot Detection</strong><span class="badg">ECE • two</span></div>
+          <p class="muted">Ultrasonic sensor array, signal conditioning, haptic alerts, PCB layout.</p>
+        </a>
+        <a class="card project" href="#" data-aos="fade-up" data-aos-delay="100">
+          <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop" alt="College Event Manager" />
+          <div class="meta"><strong>College Event Manager (Java)</strong><span class="badg">ECE • signal/O</span></div>
+          <p class="muted">Manage events & participants with CSV import/export; clean architecture.</p>
+        </a>
+        <a class="card project" href="#" data-aos="fade-up" data-aos-delay="200">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop" alt="Internship Auto Apply" />
+          <div class="meta"><strong>Internship Auto Apply (Python)</strong><span class="badg">Automation</span></div>
+          <p class="muted">Filters roles, auto fills forms with profile data (respecting site rules).</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+    <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <h2 data-aos="fade-up">Internship</h2>
+      <div class="grid projects">
+        <a class="card project" href="#" data-aos="fade-up" data-aos-delay="100">
+          <div class="meta"><strong>Gen AI</strong><span class="badg">AI • Gen AI</span></div>
+          <p class="muted">Internship Program by Skillible partnership with the Ministry of Education and AICTE Completed 4-week.</p>
+        </a>
+        <a class="card project" href="#" data-aos="fade-up" data-aos-delay="100">
+          <div class="meta"><strong>Artificial Intelligence and Data Analytics focused on Green Skills</strong><span class="badg">AI • Data Analytics</span></div>
+          <p class="muted">organized by AICTE, Shell India Markets Private Limited and Edunet Foundation under Skills4Future program.</p>
+        </a>
+        <a class="card project" href="#" data-aos="fade-up">
+          <div class="meta"><strong>Internship on AI</strong><span class="badg">AI • ML</span></div>
+          <p class="muted">Transformative Learning with TechSaksham– A joint CSR initiative of Microsoft & SAP, implemented by Edunet Foundation.</p>
+        </a>
+        <a class="card project" href="#" data-aos="fade-up" data-aos-delay="100">
+          <div class="meta"><strong>Cyber Security</strong><span class="badg">CS • Cyber Security</span></div>
+          <p class="muted">implemented by Edunet Foundation, in collaboration with All India Council for Technical Education (AICTE) and IBM SkillsBuild.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container grid" style="grid-template-columns:1.1fr .9fr; gap:18px">
+      <div class="card" data-aos="fade-up">
+        <h2>Contact</h2>
+        <a href="https://forms.gle/GFHsFgkmxcvvJiFi7" target="_blank">https://forms.gle/GFHsFgkmxcvvJiFi7</a>
+      </div>
+      <div class="card" data-aos="fade-left">
+        <h2>Connect</h2>
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/sougata-samanta-739753308?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a>
+          <a href="mailto:samantasougata@gmail.com">Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap">
+      <div>© <span id="year"></span> Sougata Samanta · Built with HTML/CSS/JS</div>
+      <div style="display:flex; gap:12px">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // AOS init
+    AOS.init({ duration: 700, once: true, easing: 'ease-out-cubic' });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Typing effect
+    const words = [
+      'Microwave Engineering',
+      'Communication Networking',
+      'Communication Systems',
+      'Wireless Communications Systems',
+      'Electronics',
+      'Java',
+      'Python',
+      'MATLAB',
+      'Artificial Intelligence',
+      '5G/6G Communication',
+      'Cyber Security',
+      'Data Analytics'
+    ];
+    const typingEl = document.getElementById('typing');
+    let wi = 0, si = 0, back = false;
+    function typeTick(){
+      const w = words[wi % words.length];
+      if(!back){
+        si++;
+        typingEl.textContent = w.substring(0, si);
+        if(si === w.length){ back = true; setTimeout(typeTick, 900); return; }
+      } else {
+        si--;
+        typingEl.textContent = w.substring(0, si);
+        if(si === 0){ back = false; wi++; }
+      }
+      setTimeout(typeTick, back ? 35 : 70);
+    }
+    typeTick();
+  </script>
+</body>
+</html>
